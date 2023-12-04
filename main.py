@@ -1,4 +1,4 @@
-import d1, d2, d3
+import d1, d2, d3, d4
 
 
 def happy_christmas():
@@ -14,6 +14,14 @@ def happy_christmas():
     print('                       ------------                        ')
     print('On the third day of Christmas, we got stuck on a gondola...')
     d3.solve_d3(path + 'd3.txt')
+    print('                    ------------------                     ')
+    print('                    ------------------                     ')
+    print('On the fourth day of Christmas, we played the lottery...')
+    d3.solve_d4(path + 'd4.txt')
+    print('                --------------------------                 ')
+    print('                --------------------------                 ')
+
+
 
 
 
