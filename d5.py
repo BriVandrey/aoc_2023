@@ -26,8 +26,16 @@ Consider all of the initial seed numbers listed in the ranges on the first line 
 location number that corresponds to any of the initial seed numbers?
 
 """
-import re
 import utility
+import re
+
+
+def read_file(path):
+    with open(path, 'r') as file:
+        lines = file.readlines()
+        lines = [line.strip() for line in lines]  # remove new line characters
+
+    return lines
 
 
 def split_into_sections(data):
@@ -73,9 +81,17 @@ def get_seed_locations(sections, seeds):
         for i in range(1, len(sections)):
             section = sections[i]  # start from second section
             current_number = get_number_mapping(current_number, section)
-        locations.append(current_number)  # this number should now be the location number
+        locations.append(current_number)
 
-    return locations
+    return min(locations)
+
+
+# thought process -- because it is a range, the smallest location number should be in first of last position in list
+def get_seed_location_pairs(sections, seeds):
+    first_seed, second_seed, last_seed = seeds[0], seeds[1], seeds[-1]
+    location = get_seed_locations(sections, [first_seed, second_seed, last_seed])
+
+    return location
 
 
 def find_closest_seed_location_from_pairs(sections, seeds):
@@ -83,11 +99,11 @@ def find_closest_seed_location_from_pairs(sections, seeds):
     count = 0
     min_locations = []
 
-    for pair in range(0, num_pairs-1):  # brute force -- VERY COMPUTATIONALLY INTENSIVE
+    for pair in range(0, num_pairs):
         seed_origin, seed_range = int(seeds[count]), int(seeds[count+1])
-        seed_numbers = range(seed_origin, seed_origin + seed_range + 1)
-        locations = get_seed_locations(sections, seed_numbers)
-        min_locations.append(min(locations))
+        seed_numbers = range(seed_origin, seed_origin + seed_range +1)
+        location = get_seed_location_pairs(sections, seed_numbers)
+        min_locations.append(location)
         count += 2
 
     return min(min_locations)
@@ -98,9 +114,9 @@ def solve_d5(data_path):
     sections = split_into_sections(data)  # split into different mappings
     seeds = re.findall(r'\d+', sections[0].split(':')[1])  # get list of seeds
     q1_answer = get_seed_locations(sections, seeds)
-#    q2_answer = find_closest_seed_location_from_pairs(sections, seeds)
-    print('Okay gardener, the seed with the nearest location is', str(min(q1_answer)))
-#    print(str(q2_answer))
+    print('Okay gardener, the nearest location is', str(q1_answer))
+    q2_answer = find_closest_seed_location_from_pairs(sections, seeds)
+    print('Whoops! The actual nearest location is... Hang on, I dunno! Here is a wrong answer:', str(q2_answer))
 
 
 if __name__ == '__main__':
