@@ -30,8 +30,6 @@ def get_first_and_last_numbers(array_of_strings):
         numbers = re.findall(r'\d+', string)  # all numbers
         two_digit_number = numbers[0][0] + numbers[-1][-1]  # concatenate first and last digit
         two_digit_numbers.append(int(two_digit_number))  # add to array as integer
-        if len(numbers) == 1:
-            print(string,two_digit_number)
 
     return two_digit_numbers
 

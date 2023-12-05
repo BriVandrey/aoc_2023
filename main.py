@@ -1,7 +1,8 @@
-import d1, d2, d3, d4
+import d1, d2, d3, d4, d5
 
 
-def happy_christmas():
+def happy_christmas(path):
+    print('                            *                             ')
     print('                            --                            ')
     print('                            --                            ')
     print('On the first day of Christmas, we checked our list of strings...')
@@ -17,9 +18,14 @@ def happy_christmas():
     print('                    ------------------                     ')
     print('                    ------------------                     ')
     print('On the fourth day of Christmas, we played the lottery...')
-    d3.solve_d4(path + 'd4.txt')
+    d4.solve_d4(path + 'd4.txt')
     print('                --------------------------                 ')
     print('                --------------------------                 ')
+    print('On the fifth day of Christmas, we came to realise we are crap gardeners...')
+    d5.solve_d5(path + 'd5.txt')
+    print('           ------------------------------------            ')
+    print('           -XX--XX--XX--XX--XX--XX--XX--XX--XX-            ')
+    print('           ------------------------------------            ')
 
 
 
@@ -27,4 +33,5 @@ def happy_christmas():
 
 if __name__ == '__main__':
     path = "/Users/briannavandrey/Desktop/aoc_2023/"
+    happy_christmas(path)
 
