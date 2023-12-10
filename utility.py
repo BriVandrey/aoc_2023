@@ -1,5 +1,5 @@
 import numpy as np
-
+import pandas as pd
 
 # read in .txt file from specified path as a list
 def read_file(path):

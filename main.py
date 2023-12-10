@@ -27,7 +27,7 @@ def happy_christmas(path):
     print('           -XX--XX--XX--XX--XX--XX--XX--XX--XX-            ')
     print('           ------------------------------------            ')
     print('On the sixth day of Christmas, we went to the (boat) races...!')
-    d5.solve_d5(path + 'd5.txt')
+    d6.solve_d6(path + 'd6.txt')
     print('        ------------------------------------------          ')
     print('        ------------------------------------------          ')
 
