@@ -116,7 +116,6 @@ def solve_d7(data_path):
     print(q2_answer)
 
 
-
 if __name__ == '__main__':
-    path = "/Users/briannavandrey/Desktop/aoc_2023/d7.txt"
+    path = "C:\\Users\\bmvan\PycharmProjects\\aoc_2023\data\d7.txt"
     solve_d7(path)
